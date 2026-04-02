@@ -64,7 +64,7 @@ export default function UserForm({ initialData, userId }: UserFormProps) {
             {userId ? 'Edit Member Profile' : 'Add New Member'}
           </h2>
           <p className="text-slate-500 mt-1">
-            {userId ? 'Modify the account details and permissions for this user.' : 'Fill in the information to invite a new team member.'}
+            {userId ? 'Modify the account details and permissions for this user.' : 'Fill in the information to create a new user.'}
           </p>
         </div>
 
