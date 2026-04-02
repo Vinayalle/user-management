@@ -11,6 +11,8 @@ import {
   BiTrash, 
   BiUserCircle 
 } from 'react-icons/bi';
+// 1. Add the import
+import { toast } from 'sonner';
 
 export default function UserDashboard() {
   const [users, setUsers] = useState<User[]>([]);
@@ -33,15 +35,45 @@ export default function UserDashboard() {
     }
   };
 
-  const deleteUser = async (id: number) => {
-    if (!confirm("Are you sure you want to delete this user?")) return;
-    try {
-      await fetch(`/api/users/${id}`, { method: 'DELETE' });
-      setUsers(users.filter(u => u.id !== id));
-    } catch (err) {
-      console.error("Delete failed", err);
-    }
-  };
+  // const deleteUser = async (id: number) => {
+  //  if (!confirm("Are you sure?")) return;
+  
+  // // Create a loading toast that updates on success/error
+  // const toastId = toast.loading('Deleting user...');
+
+  // try {
+  //   const res = await fetch(`/api/users/${id}`, { method: 'DELETE' });
+  //   if (!res.ok) throw new Error();
+    
+  //   setUsers(users.filter(u => u.id !== id));
+  //   toast.success('User deleted successfully', { id: toastId });
+  // } catch (err) {
+  //   toast.error('Failed to delete user', { id: toastId });
+  // }
+  // };
+
+  const deleteUser = (id: number) => {
+  toast("Delete Member?", {
+    description: "This action cannot be undone.",
+    action: {
+      label: "Delete",
+      onClick: async () => {
+        const toastId = toast.loading("Deleting...");
+        try {
+          await fetch(`/api/users/${id}`, { method: 'DELETE' });
+          setUsers(prev => prev.filter(u => u.id !== id));
+          toast.success("User deleted", { id: toastId });
+        } catch {
+          toast.error("Failed to delete", { id: toastId });
+        }
+      },
+    },
+    cancel: {
+      label: "Cancel",
+      onClick: () => toast.dismiss(),
+    },
+  });
+};
 
   const filteredUsers = users.filter(u => 
     u.name.toLowerCase().includes(searchTerm.toLowerCase()) || 

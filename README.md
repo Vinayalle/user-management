@@ -36,7 +36,7 @@ Follow these exact steps to set up the project on your local machine:
 
 ### 1. Clone the Repository
 
-```bash
+````bash
 git clone [https://github.com/Vinayalle/user-management.git](https://github.com/Vinayalle/user-management.git)
 cd user-management
 
@@ -57,4 +57,34 @@ npx prisma db push
 npm run dev
 
 Note: Open http://localhost:3000 to see the result.
-```
+
+# 👥 User Management Dashboard
+
+A professional, high-performance administrative interface built with **Next.js 14**, **Tailwind CSS**, and **TypeScript**.
+
+---
+
+## 🚀 API Reference
+
+Use these endpoints to manage the user lifecycle. All requests and responses use `application/json`.
+
+### Endpoints Overview
+
+| Method | Endpoint | Description | Status |
+| :--- | :--- | :--- | :--- |
+| ![POST](https://img.shields.io/badge/POST-22c55e?style=flat-square) | `/api/users` | Create a new user account | ✅ Active |
+| ![GET](https://img.shields.io/badge/GET-3b82f6?style=flat-square) | `/api/users` | Fetch all registered users | ✅ Active |
+| ![PUT](https://img.shields.io/badge/PUT-f59e0b?style=flat-square) | `/api/users/:id` | Update existing user details | ✅ Active |
+| ![DELETE](https://img.shields.io/badge/DELETE-ef4444?style=flat-square) | `/api/users/:id` | Permanent user removal | ✅ Active |
+
+### Request Body Schema
+For **POST** and **PUT** requests:
+```json
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "role": "admin"
+}
+
+
+````
