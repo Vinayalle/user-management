@@ -56,7 +56,7 @@ npx prisma db push
 
 npm run dev
 
-Note: Open http://localhost:3000 to see the result.
+Note: Open http://localhost:3000/users to see the result.
 
 # 👥 User Management Dashboard
 
@@ -72,10 +72,10 @@ Use these endpoints to manage the user lifecycle. All requests and responses use
 
 | Method | Endpoint | Description | Status |
 | :--- | :--- | :--- | :--- |
-| ![POST](https://img.shields.io/badge/POST-22c55e?style=flat-square) | `/api/users` | Create a new user account | ✅ Active |
-| ![GET](https://img.shields.io/badge/GET-3b82f6?style=flat-square) | `/api/users` | Fetch all registered users | ✅ Active |
-| ![PUT](https://img.shields.io/badge/PUT-f59e0b?style=flat-square) | `/api/users/:id` | Update existing user details | ✅ Active |
-| ![DELETE](https://img.shields.io/badge/DELETE-ef4444?style=flat-square) | `/api/users/:id` | Permanent user removal | ✅ Active |
+| [POST] | `http://localhost:3000/api/users` | Create a new user account | ✅ Active |
+| [GET] | `http://localhost:3000/api/users` | Fetch all registered users | ✅ Active |
+| [PUT] | `http://localhost:3000/api/users/:id` | Update existing user details | ✅ Active |
+| [DELETE] | `http://localhost:3000/api/users/:id` | Permanent user removal | ✅ Active |
 
 ### Request Body Schema
 For **POST** and **PUT** requests:
