@@ -141,9 +141,7 @@ export default function UserForm({ initialData, userId }: UserFormProps) {
         </form>
       </div>
 
-      <p className="text-center text-slate-400 text-sm mt-8">
-        Secure management. All changes are logged for auditing purposes.
-      </p>
+      
     </div>
   );
 }
